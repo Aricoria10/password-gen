@@ -1,3 +1,4 @@
+console.log(this);
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -13,37 +14,41 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
 
+
 function generatePassword() {
   var result = [];
-  var length = [];
+  var characters = [];
+
   do {
-    length = window.prompt("How long would you like your password? Enter a number 8-128.") 
-    length = parseInt(length, 10);
-  } while (isNaN(length) || length < 8 || length > 129)
-  if (length >= 8 && length <= 128) { 
+    characters = window.prompt("How long would you like your password? Enter a number 8-128.") 
+    characters = parseInt(characters, 10);
+  } while (isNaN(characters) || characters < 8 || characters > 129)
+  if (characters >= 8 && characters <= 128) { 
   }else {
-    window.alert("try again later.")
+    window.alert("try again later.");
     return "";
   }
-   var special = "Do you want to include special characters?";
-  if (confirm(special) === true) {
-    specialCharacters.concat(result);
+  var special = window.confirm("Do you want to include special characters?");
+  if (special === true) {
+      result = specialCharacters.concat(result);
   } else {}
-  var number = "Do you want to include numeric characters?";
-  if (confirm(number) === true) {
-    numericCharacters.concat(result);
+  var number = window.confirm("Do you want to include numeric characters?");
+  if (number === true) {
+      result = numericCharacters.concat(result);
   } else {}
-  var lower= "Do you want to include lower case characters?";
-  if (confirm(lower) === true) {
-    lowerCasedCharacters.concat(result);
+  var lower = window.confirm("Do you want to include lower case characters?");
+  if (lower === true) {
+      result = lowerCasedCharacters.concat(result);
   } else {}
-  var upper = "Do you want to include uppper case characters?";
-  if (confirm(upper) === true) {
-    upperCasedCharacters.concat(result);
+  var upper = window.confirm("Do you want to include uppper case characters?");
+  if (upper === true) {
+      result = upperCasedCharacters.concat(result);
   } else {}
-  if (special === false && number === false && lower === false && upper === false) {
-    window.alert("Invalid input, please choose at least on set of characters to generate password.")
-    return "";
+  if (special == false && number == false && lower == false && upper == false) {
+    window.alert("Invalid input, please choose at least on set of characters to generate password.") 
+  } 
+  for (var i = 0; i = characters; i++) {
+    result = Math.floor(Math.random()*result.length)
   }
 }
 
