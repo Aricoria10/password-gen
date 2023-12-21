@@ -14,10 +14,9 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
 
-
 function generatePassword() {
-  var result = [];
   var characters = [];
+  var result = [];
 
   do {
     characters = window.prompt("How long would you like your password? Enter a number 8-128.") 
@@ -47,18 +46,18 @@ function generatePassword() {
   if (special == false && number == false && lower == false && upper == false) {
     window.alert("Invalid input, please choose at least on set of characters to generate password.") 
   } 
-  for (var i = 0; i = characters; i++) {
-    result = Math.floor(Math.random()*result.length)
+  var password = "";
+  for (var i = 0; i < characters; i++) {
+    password = password.concat(result[Math.floor(Math.random()*result.length)]);
   }
+  return password
 }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
