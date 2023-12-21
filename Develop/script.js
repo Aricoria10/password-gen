@@ -15,16 +15,17 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 function generatePassword() {
   var result = [];
-  var length = window.prompt("How long would you like your password? Enter a number 8-128.")
-  length = parseInt(length, 10)
-  if (length >= 8 && length <= 128) {
-  } else if (length > 8 || length < 128) {
-    window.alert("incorrect value, must be between 8-128.")
+  var length = [];
+  do {
+    length = window.prompt("How long would you like your password? Enter a number 8-128.") 
+    length = parseInt(length, 10);
+  } while (isNaN(length) || length < 8 || length > 129)
+  if (length >= 8 && length <= 128) { 
   }else {
     window.alert("try again later.")
     return "";
   }
-  var special = "Do you want to include special characters?";
+   var special = "Do you want to include special characters?";
   if (confirm(special) === true) {
     specialCharacters.concat(result);
   } else {}
@@ -40,6 +41,10 @@ function generatePassword() {
   if (confirm(upper) === true) {
     upperCasedCharacters.concat(result);
   } else {}
+  if (special === false && number === false && lower === false && upper === false) {
+    window.alert("Invalid input, please choose at least on set of characters to generate password.")
+    return "";
+  }
 }
 
 // Write password to the #password input
