@@ -50,6 +50,7 @@ function generatePassword() {
   // a quick if statement to check to see if the user did not choose for any arrays to be included in the password, since this would leave the results array empty this if statement checks for falses with all previous if statements and will stop and urge the user to try again
   if (special == false && number == false && lower == false && upper == false) {
     window.alert("Invalid input, please choose at least on set of characters to generate password.") 
+    return ""
   } 
   // this is the for lop to generate the password, it will generate the password by merge the empty password variable with the result array, the resulty array running a loop to select a number of random strings from the results array a number of times the user input in the first prompt
   var password = "";
