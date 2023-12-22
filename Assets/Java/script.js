@@ -30,19 +30,19 @@ function generatePassword() {
   var special = window.confirm("Do you want to include special characters?");
   if (special === true) {
       result = specialCharacters.concat(result);
-  } else {}
+  } 
   var number = window.confirm("Do you want to include numeric characters?");
   if (number === true) {
       result = numericCharacters.concat(result);
-  } else {}
+  } 
   var lower = window.confirm("Do you want to include lower case characters?");
   if (lower === true) {
       result = lowerCasedCharacters.concat(result);
-  } else {}
+  }
   var upper = window.confirm("Do you want to include uppper case characters?");
   if (upper === true) {
       result = upperCasedCharacters.concat(result);
-  } else {}
+  }
   if (special == false && number == false && lower == false && upper == false) {
     window.alert("Invalid input, please choose at least on set of characters to generate password.") 
   } 
